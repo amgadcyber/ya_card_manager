@@ -27,10 +27,17 @@ class CardReader {
     return count;
   }
 
-  /// [availability] Get the [AVAILABILITY] of the NFC feature on the Platform
-  static Future<AVAILABILITY> get availability async {
+  /// [availability] Get the [NFCAVAILABILITY] of the NFC feature on the Platform
+  static Future<NFCAVAILABILITY> get availability async {
     final response = await NfcClassicMifare.availability;
-    return response;
+    switch (response) {
+      case AVAILABILITY.NOT_ENABLED:
+        return NFCAVAILABILITY.notEnabled;
+      case AVAILABILITY.NOT_SUPPORTED:
+        return NFCAVAILABILITY.notSupported;
+      default:
+        return NFCAVAILABILITY.availabile;
+    }
   }
 
   /// [readAllYashamCardInfo] -- Read All Yasham Card Info
@@ -80,3 +87,5 @@ class CardReader {
     );
   }
 }
+
+enum NFCAVAILABILITY { availabile, notEnabled, notSupported }
