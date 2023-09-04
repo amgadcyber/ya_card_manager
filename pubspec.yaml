@@ -1,0 +1,29 @@
+name: ya_card_manager
+description: Ya Card Manager - In charge for some features in the Yasham Apps
+version: 0.0.1
+homepage: https://github.com/amgadcyber/ya_card_manager
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nfc_classic_mifare: ^0.3.5
+  plugin_platform_interface: ^2.0.2
+  qr_flutter: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  plugin:
+    platforms:
+      some_platform:
+        pluginClass: somePluginClass
+    # -------------------
+    
